@@ -1,0 +1,229 @@
+Rem Attribute VBA_ModuleType=VBAModule
+Option VBASupport 1
+Sub Convert_to_Inline()
+
+'Converts floating shape to inline
+'
+'
+On Error GoTo ErrMsg
+With Selection.ShapeRange(1)
+.ConvertToInlineShape
+End With
+
+Exit Sub
+
+ErrMsg:
+MsgBox "The selected object is either already inline with text or is not an image.", , "Oopsy Doodle!"
+
+End Sub
+
+Sub Resize_1_95()
+'
+'
+'
+On Error GoTo ConvertInline 'runs macro to convert to inline image if image is floating
+Begin:
+
+
+With Selection.InlineShapes(1) 'applies all subsequent commands to selected image
+.Reset 'clears previous formatting such as shadows, borders, filters
+.LockAspectRatio = msoTrue 'locks image aspect ratio
+.Width = 141 'sets image width
+.Borders.Enable = True 'enables borders
+.Borders.OutsideColor = wdColorBlack 'sets border color
+.Borders.OutsideLineWidth = wdLineWidth100pt 'sets border width
+End With
+
+With Selection.Paragraphs 'applies image style for correct indentation
+.Style = "#Image"
+End With
+
+Exit Sub
+
+ConvertInline:
+Call Convert_to_Inline
+GoTo Begin
+
+
+
+End Sub
+
+Sub Resize_4()
+'
+' Resize4 Macro
+'
+'
+On Error GoTo ConvertInline
+Begin:
+
+With Selection.InlineShapes(1)
+.Reset
+.LockAspectRatio = msoTrue
+.Width = 288
+.Borders.Enable = True
+.Borders.OutsideColor = wdColorBlack
+.Borders.OutsideLineWidth = wdLineWidth100pt
+End With
+
+With Selection.Paragraphs
+.Style = "#Image"
+End With
+
+Exit Sub
+
+ConvertInline:
+Call Convert_to_Inline
+GoTo Begin
+
+
+End Sub
+
+Sub Resize_6()
+'
+' Resize6 Macro
+'
+'
+On Error GoTo ConvertInline
+Begin:
+
+With Selection.InlineShapes(1)
+.Reset
+.LockAspectRatio = msoTrue
+.Width = 432
+.Borders.Enable = True
+.Borders.OutsideColor = wdColorBlack
+.Borders.OutsideLineWidth = wdLineWidth100pt
+End With
+
+With Selection.Paragraphs
+.Style = "#Image"
+End With
+
+Exit Sub
+
+ConvertInline:
+Call Convert_to_Inline
+GoTo Begin
+
+
+End Sub
+
+Sub Resize_3_5()
+'
+' Resize3 Macro
+'
+'
+On Error GoTo ConvertInline
+Begin:
+
+With Selection.InlineShapes(1)
+.Reset
+.LockAspectRatio = msoTrue
+.Width = 250
+.Borders.Enable = True
+.Borders.OutsideColor = wdColorBlack
+.Borders.OutsideLineWidth = wdLineWidth100pt
+End With
+
+With Selection.Paragraphs
+.Style = "#Image"
+End With
+
+Exit Sub
+
+ConvertInline:
+Call Convert_to_Inline
+GoTo Begin
+
+
+End Sub
+
+Sub Resize_3()
+'
+' Resize3 Macro
+'
+'
+On Error GoTo ConvertInline
+Begin:
+
+With Selection.InlineShapes(1)
+.Reset
+.LockAspectRatio = msoTrue
+.Width = 213
+.Borders.Enable = True
+.Borders.OutsideColor = wdColorBlack
+.Borders.OutsideLineWidth = wdLineWidth100pt
+End With
+
+With Selection.Paragraphs
+.Style = "#Image"
+End With
+
+Exit Sub
+
+ConvertInline:
+Call Convert_to_Inline
+GoTo Begin
+
+
+End Sub
+
+Sub Resize_7()
+'
+' Resize7 Macro
+'
+'
+On Error GoTo ConvertInline
+Begin:
+
+With Selection.InlineShapes(1)
+.Reset
+.LockAspectRatio = msoTrue
+.Width = 496
+.Borders.Enable = True
+.Borders.OutsideColor = wdColorBlack
+.Borders.OutsideLineWidth = wdLineWidth100pt
+End With
+
+With Selection.Paragraphs
+.Style = "#EngineeringImage"
+End With
+
+Exit Sub
+
+ConvertInline:
+Call Convert_to_Inline
+GoTo Begin
+
+
+End Sub
+
+Sub Image_Size_Up()
+'
+'
+'
+
+With Selection.InlineShapes(1)
+.LockAspectRatio = msoTrue
+.Width = .Width + 10
+
+End With
+
+
+End Sub
+
+
+Sub Image_Size_Down()
+'
+'
+'
+
+With Selection.InlineShapes(1)
+.LockAspectRatio = msoTrue
+.Width = .Width - 10
+
+End With
+
+
+End Sub
+
